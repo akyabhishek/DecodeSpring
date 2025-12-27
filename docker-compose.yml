@@ -1,0 +1,29 @@
+services:
+  service1:
+    image: "image1:latest"
+    container_name: image1_container
+    ports:
+        - "8080:80"
+
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+    networks:
+      - network_name
+  service2:
+    image: "image2:latest"
+    container_name: image2_container
+    ports:
+        - "9090:90"
+
+    deploy:
+      resources:
+        limits:
+          memory: 500m
+    networks:
+        - network_name
+# Define the custom network
+networks:
+    network_name:
+        driver: "bridge"
