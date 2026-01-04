@@ -9,11 +9,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-import redis.clients.jedis.Response;
 
 
 @RestController
-public class DecodePropertyValueController {
+public class PropertyValueController {
 
     @Value("${build.version}")
     public String buildVersion;
