@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 public class UserService {
     @Autowired
     UserRepository userRepository;
+
     public String findByUserName(String username){
         System.out.println("Finding user by username: " + username);
         // For testing, return a hardcoded value
