@@ -1,6 +1,6 @@
 package com.akyabhishek.controller;
 
-import com.akyabhishek.repository.ExternalApiService;
+import com.akyabhishek.service.ExternalApiService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

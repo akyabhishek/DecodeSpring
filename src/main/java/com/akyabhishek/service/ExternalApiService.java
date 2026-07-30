@@ -1,4 +1,4 @@
-package com.akyabhishek.repository;
+package com.akyabhishek.service;
 
 import com.akyabhishek.constants.Constants;
 import com.akyabhishek.pojo.ExternalApiCallPojo;
