@@ -33,7 +33,8 @@ public class UserServiceMockTests {
 
     @Test
     public void testMockedUserServiceWithInjectMocks() {
-        when(userServiceImpl.findByUserName("mockuser")).thenReturn("MockedUserID-99999");
-        assertEquals("MockedUserID-99999", userServiceImpl.findByUserName("mockuser"),"User ID should match mocked value via InjectMocks");
+        when(userService.findByUserName("mockuser")).thenReturn("MockedUserID-99999");
+        assertEquals("MockedUserID-99999", userService.findByUserName("mockuser"),
+                "User ID should match mocked value");
     }
 }

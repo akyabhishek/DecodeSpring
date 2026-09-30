@@ -1,0 +1,32 @@
+dn: ou=people,dc=example,dc=org
+objectClass: organizationalUnit
+ou: people
+
+dn: uid=ldapuser,ou=people,dc=example,dc=org
+objectClass: inetOrgPerson
+cn: LDAP User
+sn: User
+uid: ldapuser
+userPassword: password
+
+dn: uid=ldapadmin,ou=people,dc=example,dc=org
+objectClass: inetOrgPerson
+cn: LDAP Admin
+sn: Admin
+uid: ldapadmin
+userPassword: admin123
+
+dn: ou=groups,dc=example,dc=org
+objectClass: organizationalUnit
+ou: groups
+
+dn: cn=USER,ou=groups,dc=example,dc=org
+objectClass: groupOfNames
+cn: USER
+member: uid=ldapuser,ou=people,dc=example,dc=org
+member: uid=ldapadmin,ou=people,dc=example,dc=org
+
+dn: cn=ADMIN,ou=groups,dc=example,dc=org
+objectClass: groupOfNames
+cn: ADMIN
+member: uid=ldapadmin,ou=people,dc=example,dc=org

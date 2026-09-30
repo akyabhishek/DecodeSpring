@@ -1,0 +1,43 @@
+{
+  "realm": "auth-demo",
+  "enabled": true,
+  "roles": {
+    "realm": [
+      { "name": "USER" },
+      { "name": "ADMIN" }
+    ]
+  },
+  "clients": [
+    {
+      "clientId": "auth-demo-app",
+      "enabled": true,
+      "clientAuthenticatorType": "client-secret",
+      "secret": "local-demo-client-secret",
+      "redirectUris": ["http://localhost:8080/login/oauth2/code/keycloak"],
+      "webOrigins": ["http://localhost:8080"],
+      "standardFlowEnabled": true,
+      "directAccessGrantsEnabled": true
+    },
+    {
+      "clientId": "auth-demo-resource-server",
+      "enabled": true,
+      "clientAuthenticatorType": "client-secret",
+      "secret": "local-introspection-secret",
+      "serviceAccountsEnabled": true
+    }
+  ],
+  "users": [
+    {
+      "username": "oidcuser",
+      "enabled": true,
+      "credentials": [{ "type": "password", "value": "password", "temporary": false }],
+      "realmRoles": ["USER"]
+    },
+    {
+      "username": "oidcadmin",
+      "enabled": true,
+      "credentials": [{ "type": "password", "value": "admin123", "temporary": false }],
+      "realmRoles": ["USER", "ADMIN"]
+    }
+  ]
+}

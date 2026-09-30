@@ -23,6 +23,34 @@ services:
           memory: 500m
     networks:
         - network_name
+  keycloak:
+    image: quay.io/keycloak/keycloak:26.4.0
+    profiles: ["auth-demo"]
+    command: ["start-dev", "--import-realm"]
+    environment:
+      KC_BOOTSTRAP_ADMIN_USERNAME: admin
+      KC_BOOTSTRAP_ADMIN_PASSWORD: admin
+    ports:
+      - "8180:8080"
+    volumes:
+      - ./infrastructure/keycloak:/opt/keycloak/data/import:ro
+    networks:
+      - network_name
+
+  openldap:
+    image: bitnami/openldap:2.6
+    profiles: ["auth-demo"]
+    environment:
+      LDAP_ROOT: dc=example,dc=org
+      LDAP_ADMIN_USERNAME: admin
+      LDAP_ADMIN_PASSWORD: admin
+      LDAP_CUSTOM_LDIF_DIR: /ldifs
+    ports:
+      - "1389:1389"
+    volumes:
+      - ./infrastructure/ldap:/ldifs:ro
+    networks:
+      - network_name
 # Define the custom network
 networks:
     network_name:
